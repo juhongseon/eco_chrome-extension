@@ -1,0 +1,19 @@
+nav.navbar {
+    position: fixed;
+    width: 398px;
+    height: 50px;
+}
+
+nav.navbar > div > * {
+    display: inline-block;
+}
+
+ul.nav {
+    position: relative;
+    left: 25px;
+    bottom: 20px;
+}
+
+ul.nav > li {
+    display: inline-block;
+}
