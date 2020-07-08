@@ -1,1 +1,3 @@
 export const SAMPLE_TYPE = 'SAMPLE_TYPE'
+export const SET_HOME_FILTER1 = 'SET_HOME_FILTER1'
+export const SET_HOME_FILTER2 = 'SET_HOME_FILTER2'
