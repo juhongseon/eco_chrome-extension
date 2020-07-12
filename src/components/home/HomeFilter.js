@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { setHomeFilter1,setHomeFilter2 } from "../../actions/homeActions"
 

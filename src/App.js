@@ -4,6 +4,8 @@ import {Provider} from 'react-redux'
 import store from './store/store'
 import Header from './components/commons/Header'
 import Home from './components/home/Home'
+import Search from './components/search/Search';
+import My from './components/my/My';
 
 function App() {
   return (
@@ -11,7 +13,10 @@ function App() {
       <Router>
         <Header/>
         <Switch>
-          <Route exact path={'/'} component={Home}/>
+          <Route path={'/Home'} component={Home}/>
+          <Route path={'/Search'} component={Search}/>
+          <Route path={'/My'} component={My}/>
+          <Route component={Home}/>
         </Switch>
       </Router>
     </Provider>
