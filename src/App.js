@@ -6,12 +6,14 @@ import Header from './components/commons/Header'
 import Home from './components/home/Home'
 import Search from './components/search/Search';
 import My from './components/my/My';
+import Modal from './components/commons/Modal';
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
         <Header/>
+        <Modal/>
         <Switch>
           <Route path={'/Home'} component={Home}/>
           <Route path={'/Search'} component={Search}/>

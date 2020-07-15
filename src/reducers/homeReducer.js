@@ -1,4 +1,3 @@
-import { bindActionCreators } from "redux";
 import { SET_HOME_FILTER1, SET_HOME_FILTER2 } from "../actions/types";
 
 const initialState = {
