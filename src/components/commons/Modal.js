@@ -10,7 +10,6 @@ export default function Modal() {
     useEffect(()=>{
         const initFavArr = JSON.parse(document.getElementById('init').value)
         dispatch(setFavorite(initFavArr))
-        document.getElementById('init').value = JSON.stringify(initFavArr)
     },[])
 
     const my = useSelector(state=>state.my)
