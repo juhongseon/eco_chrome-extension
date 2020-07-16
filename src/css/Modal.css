@@ -17,6 +17,7 @@ div#modal-popup {
     height: 550px;
     z-index: 999;
     background-color: white;
+    overflow-y: scroll;
 }
 
 span#modal-close {

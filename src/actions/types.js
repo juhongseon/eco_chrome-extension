@@ -1,6 +1,12 @@
 export const SAMPLE_TYPE = 'SAMPLE_TYPE'
+
 export const SET_HOME_FILTER1 = 'SET_HOME_FILTER1'
 export const SET_HOME_FILTER2 = 'SET_HOME_FILTER2'
+
 export const SHOW_MODAL = 'SHOW_MODAL'
 export const HIDE_MODAL = 'HIDE_MODAL'
 export const SET_IMGSRC = 'SET_IMGSRC'
+
+export const SET_FAVORITE = 'SET_FAVORITE'
+export const ADD_FAVORITE = 'ADD_FAVORITE'
+export const REMOVE_FAVORITE = 'REMOVE_FAVORITE'
