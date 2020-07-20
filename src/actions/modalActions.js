@@ -1,8 +1,13 @@
 import { HIDE_MODAL, SHOW_MODAL, SET_IMGSRC } from "./types";
 
-export const showModal = ()=>dispatch=>{
+export const showModal = (title,author,files)=>dispatch=>{
     dispatch({
-        type: SHOW_MODAL
+        type: SHOW_MODAL,
+        payload: {
+            title: title,
+            author: author,
+            files: files
+        }
     })
 }
 

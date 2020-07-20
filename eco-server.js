@@ -1,5 +1,7 @@
 const express = require("express")
 const app = express()
+app.use(express.static('emo'))
+
 const mc = require("mongodb").MongoClient
 const ObjectID = require("mongodb").ObjectID
 
@@ -22,7 +24,10 @@ app.get('/home',(req,res)=>{
 
     mc.connect(mUrl,(err,client)=>{
         var db = client.db('eco')
-        res.json(docs)
-        client.close()
+        db.collection('emo').find({})
+            .toArray((err,docs)=>{
+                res.json(docs)
+                client.close()
+            })
     })
 })

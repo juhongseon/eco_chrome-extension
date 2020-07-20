@@ -33,6 +33,10 @@ export default function Modal() {
         document.getElementById('emo-imgsrc').click()
     },[changed])
 
+    const title = modal.title
+    const author = modal.author
+    const html = modal.files.map(m=><Emo imgsrc={m}/>)
+
     return(
         <div id="modal" style={style}>
             <div onClick={()=>{dispatch(hideModal())}} id="modal-background"></div>
@@ -40,24 +44,11 @@ export default function Modal() {
                 <div className="text-right">
                     <span onClick={()=>{dispatch(hideModal())}} id="modal-close">X</span>
                 </div>
-                <Emo imgsrc='1111'/>
-                <Emo imgsrc='2222'/>
-                <Emo imgsrc='3333'/>
-                <Emo imgsrc='4444'/>
-                <Emo imgsrc='5555'/>
-                <Emo imgsrc='6666'/>
-                <Emo imgsrc='7777'/>
-                <Emo imgsrc='8888'/>
-                <Emo imgsrc='9999'/>
-                <Emo imgsrc='1111'/>
-                <Emo imgsrc='2222'/>
-                <Emo imgsrc='3333'/>
-                <Emo imgsrc='4444'/>
-                <Emo imgsrc='5555'/>
-                <Emo imgsrc='6666'/>
-                <Emo imgsrc='7777'/>
-                <Emo imgsrc='8888'/>
-                <Emo imgsrc='9999'/>
+                <h4 className="text-center">{title}</h4>
+                <div className="text-right" style={{"marginRight":"5px"}}>
+                    <font color="gray">by</font> {author}
+                </div>
+                {html}
             </div>
             <input type="hidden" id="emo-imgsrc" value={imgsrc}/>
         </div>
