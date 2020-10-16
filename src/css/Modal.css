@@ -21,6 +21,10 @@ div#modal-popup {
 }
 
 span#modal-close {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    z-index: 9999;
     font-size: 20px;
     cursor: pointer;
     margin-right: 4px;

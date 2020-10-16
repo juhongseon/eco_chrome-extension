@@ -21,8 +21,6 @@ export default function Modal() {
         document.getElementById('init').click()
     },[myChanged])
 
-    
-
     const modal = useSelector(state=>state.modal)
     const style = {
         display: modal.visible ? 'block' : 'none'

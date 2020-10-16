@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { SET_HOME_FILTER1, SET_HOME_FILTER2, FETCH_NEXT_PAGE } from "./types"
+import { SET_HOME_FILTER1, SET_HOME_FILTER2, FETCH_NEXT_PAGE, SET_KEYWORD, ADD_KEYWORD } from "./types"
 import { SERVER_URL } from "../const/const"
 
 export const setHomeFilter1 = (type)=>dispatch=>{
@@ -13,6 +13,20 @@ export const setHomeFilter2 = (order)=>dispatch=>{
     dispatch({
         type: SET_HOME_FILTER2,
         payload: order
+    })
+}
+
+export const setKeyword = (keyword)=>dispatch=>{
+    dispatch({
+        type: SET_KEYWORD,
+        payload: keyword
+    })
+}
+
+export const addKeyword = (keyword)=>dispatch=>{
+    dispatch({
+        type: ADD_KEYWORD,
+        payload: keyword
     })
 }
 

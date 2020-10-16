@@ -1,8 +1,5 @@
 div#filter-container {
     display: table;
-    position: fixed;
-    right: 20px;
-    top: 16px;
   }
 
   div.filter {

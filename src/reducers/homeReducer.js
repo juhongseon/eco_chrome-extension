@@ -1,8 +1,9 @@
-import { SET_HOME_FILTER1, SET_HOME_FILTER2, FETCH_NEXT_PAGE } from "../actions/types";
+import { SET_HOME_FILTER1, SET_HOME_FILTER2, FETCH_NEXT_PAGE, SET_KEYWORD, ADD_KEYWORD } from "../actions/types";
 
 const initialState = {
-    filter1: 'author',
+    filter1: 'title',
     filter2: 'favorite',
+    keyword: '',
     currpage: 0,
     list: []
 }
@@ -18,6 +19,16 @@ export default function(state=initialState,action) {
             return {
                 ...state,
                 filter2: action.payload
+            }
+        case SET_KEYWORD:
+            return {
+                ...state,
+                keyword: action.payload
+            }
+        case ADD_KEYWORD:
+            return {
+                ...state,
+                keyword: state.keyword+' '+action.payload+' '
             }
         case FETCH_NEXT_PAGE:
             return {
