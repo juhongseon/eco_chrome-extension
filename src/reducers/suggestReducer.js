@@ -1,7 +1,8 @@
-import { SHOW_SUGGEST, HIDE_SUGGEST } from "../actions/types"
+import { SHOW_SUGGEST, HIDE_SUGGEST, FETCH_SUGGEST } from "../actions/types"
 
 const initialState = {
-    visible: false
+    visible: false,
+    list: []
 }
 
 export default function(state=initialState,action) {
@@ -15,6 +16,11 @@ export default function(state=initialState,action) {
             return {
                 ...state,
                 visible: false
+            }
+        case FETCH_SUGGEST:
+            return {
+                ...state,
+                list: action.payload
             }
         default: return state
     }

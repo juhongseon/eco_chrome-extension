@@ -26,3 +26,4 @@ export const SET_LOGIN_RESULT = 'SET_LOGIN_RESULT'
 
 export const SHOW_SUGGEST = 'SHOW_SUGGEST'
 export const HIDE_SUGGEST = 'HIDE_SUGGEST'
+export const FETCH_SUGGEST = 'FETCH_SUGGEST'
