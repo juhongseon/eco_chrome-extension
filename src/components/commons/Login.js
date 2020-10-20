@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../../css/Login.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { tryLogin } from '../../actions/loginActions'
+import { setLoginResult, tryLogin, trySignin } from '../../actions/loginActions'
 
 export default function Login() {
     const dispatch = useDispatch()
@@ -27,10 +27,20 @@ export default function Login() {
                         onChange={(e)=>{setPwd(e.target.value)}} value={pwd}
                     />
                 </div>
-                <input type="button" value="회원가입"/>
-                <input onClick={()=>{dispatch(tryLogin(email,pwd))}} type="button" value="로그인"/>
+                <input onClick={()=>{
+                        if(email=='') {dispatch(setLoginResult('아이디를 입력하세요.')); return}
+                        if(pwd=='') {dispatch(setLoginResult('비밀번호를 입력하세요.')); return}
+                        dispatch(trySignin(email,pwd))
+                    }} type="button" value="회원가입"
+                />
+                <input onClick={()=>{
+                        if(email=='') {dispatch(setLoginResult('아이디를 입력하세요.')); return}
+                        if(pwd=='') {dispatch(setLoginResult('비밀번호를 입력하세요.')); return}
+                        dispatch(tryLogin(email,pwd))
+                    }} type="button" value="로그인"
+                />
                 <br/>
-                <span style={{color:'red'}}>{login.result=='nopwd' ? '비밀번호가 틀렸습니다.' : '아이디가 틀렸습니다.'}</span>
+                <span style={{color:'red'}}>{login.result}</span>
             </form>
         </div>
     )

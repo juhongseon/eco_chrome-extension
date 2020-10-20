@@ -22,7 +22,7 @@ export const HIDE_LOGIN = 'HIDE_LOGIN'
 export const NO_ID = 'NO_ID'
 export const NO_PWD = 'NO_PWD'
 export const AUTHORIZED = 'AUTHORIZED'
-export const EXISTED_ID = 'EXISTED_ID'
+export const SET_LOGIN_RESULT = 'SET_LOGIN_RESULT'
 
 export const SHOW_SUGGEST = 'SHOW_SUGGEST'
 export const HIDE_SUGGEST = 'HIDE_SUGGEST'
