@@ -1,7 +1,9 @@
-import { SHOW_LOGIN, HIDE_LOGIN } from "../actions/types";
+import { SHOW_LOGIN, HIDE_LOGIN, NO_ID, NO_PWD, AUTHORIZED } from "../actions/types";
 
 const initialState = {
-    visible: true
+    visible: true,
+    result: '',
+    auth: 'unauthorized'
 }
 
 export default function(state=initialState,action) {
@@ -15,6 +17,25 @@ export default function(state=initialState,action) {
             return {
                 ...state,
                 visible: false
+            }
+        case NO_ID:
+            return {
+                ...state,
+                visible: true,
+                result: 'noid'
+            }
+        case NO_PWD:
+            return {
+                ...state,
+                visible: true,
+                result: 'nopwd'
+            }
+        case AUTHORIZED:
+            return {
+                ...state,
+                visible: false,
+                result: true,
+                auth: action.payload
             }
         default: return state
     }

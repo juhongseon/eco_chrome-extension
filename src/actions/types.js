@@ -19,6 +19,10 @@ export const HIDE_ADDITIONAL = 'HIDE_ADDITIONAL'
 
 export const SHOW_LOGIN = 'SHOW_LOGIN'
 export const HIDE_LOGIN = 'HIDE_LOGIN'
+export const NO_ID = 'NO_ID'
+export const NO_PWD = 'NO_PWD'
+export const AUTHORIZED = 'AUTHORIZED'
+export const EXISTED_ID = 'EXISTED_ID'
 
 export const SHOW_SUGGEST = 'SHOW_SUGGEST'
 export const HIDE_SUGGEST = 'HIDE_SUGGEST'
