@@ -10,9 +10,18 @@ export const setHomeFilter1 = (type)=>dispatch=>{
 }
 
 export const setHomeFilter2 = (order)=>dispatch=>{
-    dispatch({
-        type: SET_HOME_FILTER2,
-        payload: order
+    axios.get(SERVER_URL+'/home',{
+        params: {
+            filter2: order
+        }
+    }).then((res)=>{
+        dispatch({
+            type: SET_HOME_FILTER2,
+            payload: {
+                filter2: order,
+                data: res.data
+            }
+        })
     })
 }
 

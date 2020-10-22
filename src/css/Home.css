@@ -20,3 +20,11 @@ div#home-optgrp2 {
     text-align: right;
     padding: 0px;
 }
+
+.btn {
+    background-color: gainsboro;
+}
+
+.btn.btn-default {
+    background-color: white;
+}

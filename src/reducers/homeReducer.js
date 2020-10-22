@@ -2,7 +2,7 @@ import { SET_HOME_FILTER1, SET_HOME_FILTER2, FETCH_NEXT_PAGE, SET_KEYWORD, ADD_K
 
 const initialState = {
     filter1: 'title',
-    filter2: 'favorite',
+    filter2: 'recent',
     keyword: '',
     currpage: 0,
     list: []
@@ -18,7 +18,8 @@ export default function(state=initialState,action) {
         case SET_HOME_FILTER2:
             return {
                 ...state,
-                filter2: action.payload
+                filter2: action.payload.filter2,
+                list: action.payload.data
             }
         case SET_KEYWORD:
             return {
