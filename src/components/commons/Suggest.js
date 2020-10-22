@@ -3,6 +3,7 @@ import '../../css/Suggest.css'
 import { useSelector, useDispatch } from 'react-redux'
 import SuggestItem from './SuggestItem'
 import { fetchSuggest, hideSuggest } from '../../actions/suggestActions'
+import { sepKor } from '../../const/const'
 
 export default function Suggest() {
     const dispatch = useDispatch()
@@ -16,11 +17,14 @@ export default function Suggest() {
         dispatch(fetchSuggest(filter1))
     },[filter1])
 
+    const searchKeyword = useSelector(state=>state.home.keyword)
+    const matchedList = suggest.list.filter(item=>sepKor(item.name).includes(sepKor(searchKeyword)))
+
     return (
         <div id="suggest-container" style={style}>
             <div onClick={()=>{dispatch(hideSuggest())}} id="suggest-background"></div>
             <div id="suggest-popup">
-                {suggest.list.map(m=><SuggestItem keyword={m.name}/>)}
+                {matchedList.map(m=><SuggestItem keyword={m.name}/>)}
             </div>
         </div>
     )
