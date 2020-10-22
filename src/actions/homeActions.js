@@ -39,17 +39,24 @@ export const addKeyword = (keyword)=>dispatch=>{
     })
 }
 
-export const fetchNextPage = (filter1,filter2,currpage)=>dispatch=>{
+export const fetchNextPage = (filter1,filter2,keyword,currpage)=>dispatch=>{
     axios.get(SERVER_URL+'/home',{
         params: {
             filter1: filter1,
             filter2: filter2,
-            page: currpage+1
+            keyword: keyword,
+            page: currpage
         }
     }).then((res)=>{
         dispatch({
             type: FETCH_NEXT_PAGE,
-            payload: res.data
+            payload: {
+                filter1: filter1,
+                filter2: filter2,
+                keyword: keyword,
+                currpage: currpage,
+                data: res.data
+            }
         })
     })
 }

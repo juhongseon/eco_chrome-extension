@@ -8,12 +8,13 @@ export default function HomeList() {
     const home = useSelector(state=>state.home)
     const filter1 = home.filter1
     const filter2 = home.filter2
+    const keyword = home.keyword
     const currpage = home.currpage
     
     const [gap,setGap] = useState(100)
 
     useEffect(()=>{
-
+        dispatch(fetchNextPage(filter1,filter2,keyword,currpage))
     },[])
 
     setInterval(() => {
@@ -22,7 +23,7 @@ export default function HomeList() {
 
     useEffect(()=>{
         if(gap<800) {
-            dispatch(fetchNextPage(filter1,filter2,currpage))
+            dispatch(fetchNextPage(filter1,filter2,keyword,currpage))
         }
     },[gap])
 

@@ -1,6 +1,6 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { setHomeFilter2 } from "../../actions/homeActions"
+import { fetchNextPage, setHomeFilter2 } from "../../actions/homeActions"
 import { toKor } from "../../const/const"
 
 export default function HomeFilter() {
@@ -22,8 +22,8 @@ export default function HomeFilter() {
             </div> */}
             <div id="home-search-display" className="col-xs-7">{display}</div>
             <div id="home-optgrp2" className="col-xs-5">
-            <button onClick={()=>{dispatch(setHomeFilter2('favorite'))}} type="button" className={filter2=='favorite' ? "btn" : "btn btn-default"}>인기순</button>
-            <button onClick={()=>{dispatch(setHomeFilter2('recent'))}} type="button" className={filter2=='recent' ? "btn" : "btn btn-default"}>최신순</button>
+            <button onClick={()=>{dispatch(fetchNextPage(filter1,'favorite',keyword,0))}} type="button" className={filter2=='favorite' ? "btn" : "btn btn-default"}>인기순</button>
+            <button onClick={()=>{dispatch(fetchNextPage(filter1,'recent',keyword,0))}} type="button" className={filter2=='recent' ? "btn" : "btn btn-default"}>최신순</button>
             </div>
         </div>
     )

@@ -32,10 +32,20 @@ export default function(state=initialState,action) {
                 keyword: state.keyword+' '+action.payload+' '
             }
         case FETCH_NEXT_PAGE:
+            if(action.payload.currpage==0) {
+                return {
+                    ...state,
+                    filter1: action.payload.filter1,
+                    filter2: action.payload.filter2,
+                    keyword: action.payload.keyword,
+                    currpage: 1,
+                    list: action.payload.data
+                }
+            }
             return {
                 ...state,
-                currpage: state.currpage+1,
-                list: state.list.concat(action.payload)
+                currpage: action.payload.currpage+1,
+                list: state.list.concat(action.payload.data)
             }
         default: return state
     }

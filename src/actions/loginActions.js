@@ -46,7 +46,10 @@ export const tryLogin = (id,pwd)=>dispatch=>{
             default: {
                 dispatch({
                     type: AUTHORIZED,
-                    payload: res.data
+                    payload: {
+                        id: id,
+                        auth: res.data
+                    }
                 })
             }
         }

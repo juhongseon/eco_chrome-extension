@@ -3,13 +3,14 @@ import {NavLink} from "react-router-dom"
 import '../../css/Header.css'
 import { useDispatch, useSelector } from "react-redux"
 import { showAdditional } from "../../actions/additionalActions"
-import { setKeyword, setHomeFilter1 } from "../../actions/homeActions"
+import { setKeyword, setHomeFilter1, fetchNextPage } from "../../actions/homeActions"
 import { showSuggest, hideSuggest } from "../../actions/suggestActions"
 
 export default function Header() {
     const dispatch = useDispatch()
     const home = useSelector(state=>state.home)
     const filter1 = home.filter1
+    const filter2 = home.filter2
     const keyword = home.keyword
 
     return (
@@ -20,20 +21,18 @@ export default function Header() {
                 </div>
                 <ul className="nav navbar-nav">
                     <li>
-                        <select onChange={(e)=>{dispatch(setHomeFilter1(e.target.value))}} value={filter1} style={{"height":"34px","border":"1px solid rgb(204,204,204)","border-radius":"5px"}}>
+                        <select onChange={(e)=>{dispatch(fetchNextPage(e.target.value,filter2,keyword,0))}} value={filter1} style={{"height":"34px","border":"1px solid rgb(204,204,204)","border-radius":"5px"}}>
                             <option value="title"> 제목</option>
                             <option value="tag"> 태그</option>
                             <option value="author"> 작가</option>
                         </select>
-                        <form action="#" style={{"display":"inline-block","width":"200px","position":"relative","top":"12px"}}>
+                        <form action="javascript:void(0)" style={{"display":"inline-block","width":"200px","position":"relative","top":"12px"}}>
                             <div className="input-group">
-                                <input onFocus={()=>{dispatch(showSuggest())}} value={keyword} onChange={(e)=>{dispatch(setKeyword(e.target.value))}} type="text" className="form-control" placeholder="검색어를 입력하세요."/>
+                                <input onKeyDown={(e)=>{if(e.keyCode==13){dispatch(hideSuggest());dispatch(fetchNextPage(filter1,filter2,keyword,0))}}} onFocus={()=>{dispatch(setKeyword(''));dispatch(showSuggest())}} value={keyword} onChange={(e)=>{dispatch(setKeyword(e.target.value))}} type="text" className="form-control" placeholder="검색어를 입력하세요."/>
                                 <div className="input-group-btn">
-                                <NavLink to={'/Home'}>
                                     <button className="btn btn-default" type="button">
-                                        <i className="glyphicon glyphicon-search"></i>
+                                        <i onClick={()=>{dispatch(fetchNextPage(filter1,filter2,keyword,0))}} className="glyphicon glyphicon-search"></i>
                                     </button>
-                                </NavLink>
                                 </div>
                             </div>
                         </form>

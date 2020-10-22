@@ -3,6 +3,7 @@ import { SHOW_LOGIN, HIDE_LOGIN, NO_ID, NO_PWD, AUTHORIZED, SET_LOGIN_RESULT } f
 const initialState = {
     visible: true,
     result: '',
+    id: '',
     auth: 'unauthorized'
 }
 
@@ -40,7 +41,8 @@ export default function(state=initialState,action) {
                 ...state,
                 visible: false,
                 result: true,
-                auth: action.payload
+                auth: action.payload.auth,
+                id: action.payload.id
             }
         default: return state
     }

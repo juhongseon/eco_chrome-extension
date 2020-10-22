@@ -10,7 +10,7 @@ export default function Suggest() {
     const suggest = useSelector(state=>state.suggest)
     const filter1 = useSelector(state=>state.home.filter1)
     const style = {
-        display : suggest.visible===true ? 'block' : 'none'
+        display : suggest.visible==true ? 'block' : 'none'
     }
 
     useEffect(()=>{
